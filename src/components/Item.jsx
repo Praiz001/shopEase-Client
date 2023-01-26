@@ -13,7 +13,11 @@ const Item = ({item, width}) => {
   const navigate = useNavigate();
   const [ count, setCount] = useState(1);
   const [ isHovered, setIsHovered] = useState(false);
-  const { pallette: { neutral } } = useTheme();
+  // const { pallette: { neutral } } = useTheme();
+  const {
+    palette: { neutral },
+  } = useTheme();
+
   const { category, price, name, image } = item.attributes;
   const { 
     data: {
@@ -27,15 +31,15 @@ const Item = ({item, width}) => {
 
   return (
     <Box width={width}>
-      <Box position="absolute"
+      <Box position="relative"
         onMouseOver = {() => setIsHovered(true)}
         onMouseOut = {() => setIsHovered(false)}
       >
         <img 
-          alt= {alt.name}
+          alt= {item.name}
           width = "300px"
           height = "400px"
-          src={`http://localhost:2000${url}`}
+          src={`http://localhost:1337${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
         />
@@ -75,7 +79,7 @@ const Item = ({item, width}) => {
 
       <Box mt="3px">
         <Typography variant="subtitle2" color={neutral.dark}>
-          {category .replace(/([A-Z])/g, " $1") .replace(/^./, (str) => str.toUpperCase())}
+          {category.replace(/([A-Z])/g, " $1") .replace(/^./, (str) => str.toUpperCase())}
         </Typography>
         <Typography>{name}</Typography>
         <Typography fontWeight="bold">${price}</Typography>

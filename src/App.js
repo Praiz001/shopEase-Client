@@ -6,6 +6,7 @@ import CartMenu from "./scenes/global/CartMenu";
 import Navbar from "./scenes/global/Navbar";
 import Home from './scenes/home/Home'
 import ItemDetails from "./scenes/itemdetails/ItemDetails";
+import Footer from "./scenes/global/Footer";
 
 
 // this function always ensure page scrolls to top
@@ -23,8 +24,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <ScrollToTop/>
       <Navbar/>
+      <ScrollToTop/>
         <Routes>
           <Route  path="/" element={<Home/>} />
           <Route  path="item:itemId" element={<ItemDetails/>} />
@@ -33,6 +34,7 @@ function App() {
           {/* <Route  path="/" element={<Home/>} /> */}
         </Routes>
         <CartMenu />
+        <Footer />
       </BrowserRouter>
       
     </div>
