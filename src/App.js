@@ -20,7 +20,7 @@ const ScrollToTop = () => {
   return null;
 }
 
-function App() {
+function App() { 
   return (
     <div className="App">
       <BrowserRouter>
